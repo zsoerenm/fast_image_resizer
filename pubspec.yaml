@@ -1,7 +1,7 @@
 name: fast_image_resizer
 description: Resize images with native implementation
 version: 0.0.1
-homepage:
+homepage: https://github.com/zsoerenm/fast_image_resizer
 
 environment:
   sdk: ">=2.14.0 <3.0.0"
