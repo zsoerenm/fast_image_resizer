@@ -1,6 +1,6 @@
 name: fast_image_resizer
 description: Resize images with native implementation
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/zsoerenm/fast_image_resizer
 
 environment:

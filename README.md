@@ -19,11 +19,12 @@ Add fast_image_resizer to your pubspec.yaml
 
 ```dart
 import 'package:fast_image_resizer/fast_image_resizer.dart';
+import 'dart:typed_data';
 ```
 
 ```dart
 final rawImage = await rootBundle.load('assets/someImage.png');
-final bytes = await resizeImage(Uint8List.view(rawImage.buffer));
+final bytes = await resizeImage(Uint8List.view(rawImage.buffer), width: 150);
 if (bytes != null) {
     final imageWidget = Image.memory(Uint8List.view(bytes.buffer));
     showDialog(
@@ -45,7 +46,7 @@ final XFile? image =
     await _picker.pickImage(source: ImageSource.gallery);
 if (image != null) {
     final rawImage = await image.readAsBytes();
-    final bytes = await resizeImage(Uint8List.view(rawImage.buffer));
+    final bytes = await resizeImage(Uint8List.view(rawImage.buffer), height: 250);
     if (bytes != null) {
         final testing = Image.memory(Uint8List.view(bytes.buffer));
         showDialog(
