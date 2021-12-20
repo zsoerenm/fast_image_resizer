@@ -61,3 +61,7 @@ if (image != null) {
     }
 }
 ```
+## Known Issues
+
+* This currently does not work on web, because of this issue:
+https://github.com/flutter/flutter/issues/34075
