@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: "Image resizer",
         home: TextButton.icon(
-            label: Text("Choose picture"),
-            icon: Icon(Icons.camera),
+            label: const Text("Choose picture"),
+            icon: const Icon(Icons.camera),
             onPressed: () async {
               final rawImage = await rootBundle.load('assets/someImage.png');
               final bytes = await resizeImage(Uint8List.view(rawImage.buffer),

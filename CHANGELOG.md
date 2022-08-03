@@ -1,7 +1,9 @@
+## main
+
 ## 0.0.2
 
-* Improve documentation
+- Improve documentation
 
 ## 0.0.1
 
-* Initial version.
+- Initial version.
