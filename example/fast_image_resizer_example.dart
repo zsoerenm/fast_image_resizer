@@ -10,26 +10,39 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: "Image resizer",
-        home: TextButton.icon(
-            label: Text("Choose picture"),
-            icon: Icon(Icons.camera),
-            onPressed: () async {
-              final rawImage = await rootBundle.load('assets/someImage.png');
-              final bytes = await resizeImage(Uint8List.view(rawImage.buffer),
-                  width: 150);
-              if (bytes != null) {
-                final imageWidget = Image.memory(Uint8List.view(bytes.buffer));
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text("Image"),
-                        content: imageWidget,
-                      );
-                    });
-              }
-            }));
+    return const MaterialApp(
+      title: "Image resizer",
+      home: Home(),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Center(
+      child: TextButton.icon(
+          label: const Text("Choose picture"),
+          icon: const Icon(Icons.camera),
+          onPressed: () async {
+            final rawImage = await rootBundle.load('assets/someImage.png');
+            final bytes =
+                await resizeImage(Uint8List.view(rawImage.buffer), width: 150);
+            if (bytes != null) {
+              final imageWidget = Image.memory(Uint8List.view(bytes.buffer));
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: const Text("Image"),
+                      content: imageWidget,
+                    );
+                  });
+            }
+          }),
+    ));
   }
 }
