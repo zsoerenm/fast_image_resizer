@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
           label: const Text("Choose picture"),
           icon: const Icon(Icons.camera),
           onPressed: () async {
-            final rawImage = await rootBundle.load('assets/image.png');
+            final rawImage = await rootBundle.load('assets/someImage.png');
             final bytes =
                 await resizeImage(Uint8List.view(rawImage.buffer), width: 150);
             if (bytes != null) {
@@ -37,7 +37,7 @@ class Home extends StatelessWidget {
                   context: context,
                   builder: (BuildContext context) {
                     return AlertDialog(
-                      title: const Text("Resized image"),
+                      title: const Text("Image"),
                       content: imageWidget,
                     );
                   });
